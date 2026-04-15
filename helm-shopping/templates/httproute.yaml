@@ -19,4 +19,4 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         name: frontend-service 
-        port:
+        port: 8080

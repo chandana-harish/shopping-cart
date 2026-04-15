@@ -1,0 +1,29 @@
+apiVersion: aps/v1 
+kind: StatefulSet 
+metadata:
+  name: backend-deployment 
+  namespace: sp 
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      apps: shops
+  template:
+    metadata:
+      labels:
+        apps: shops 
+
+    spec:
+      containers:
+        - name: backend-cont 
+          image: mysql
+          ports:
+            - containerPort: 3306 
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "200Mi"
+            limits:
+              cpu: "200m"
+              memory: "400Mi"
+

@@ -13,15 +13,16 @@ spec:
   selector: 
     matchLabels:
       app: shop  
-  templates:
+  template:
     metadata:
       labels:
         app: shop 
     spec:
       containers:
         - name: shopping-cont 
-          image:
-          port: 8080 
+          image: suryaa112003/shopping:v1.1.0
+          port: 
+            - containerPort: 8080
           resources:
             requests:
               cpu: "100m"
