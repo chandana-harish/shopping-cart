@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1 
+kind: HTTPRoutes 
+metadata:
+  name: shop-rt 
+  namespace: sp 
+spec:
+  parentRefs:
+    name: kgateway1 
+  rules:
+    - matches:
+      - path:
+        -  type: PathPrefix
+           value: / 
+      filters:
+        - type: URLRewrite 
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch 
+              replacePrefixMatch: /
+      backendRefs:
+        name: frontend-service 
+        port:

@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1 
+kind: StorageClass
+metadata:
+  name: shop-storage
+provisioner: nfs.csi.io/v1
+paramater: 
+  share: /var.nfs/general/shop 
+  server:
